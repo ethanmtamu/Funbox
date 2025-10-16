@@ -24,6 +24,10 @@
     justify-content: center;
 }
 
+.sidebar-content{
+  display: flex;
+}
+
 #tabs {
     display: flex;
     flex-wrap: wrap;
