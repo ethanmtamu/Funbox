@@ -1,0 +1,52 @@
+/*
+private HBox createItemBox(Item item) {
+        HBox hbox = new HBox(10);
+        hbox.setPrefSize(350, 110);
+
+        Region spacer = new Region();
+        HBox.setHgrow(spacer, Priority.ALWAYS);
+
+        VBox vbox = new VBox(5);
+        VBox vbox2 = new VBox(20);
+        Label nameLabel = new Label(item.name);
+        nameLabel.setPadding(new Insets(27.5, 0, 0, 7.5));
+
+        Label priceLabel = new Label(String.format("$%.2f", item.price));
+        priceLabel.setPadding(new Insets(0, 0, 0, 7.5));
+
+
+        Button orderButton = new Button("Order");
+        orderButton.setPrefSize(110, 30);
+        orderButton.setOnMouseClicked(e -> handleOrder(item));
+
+        TextField editPriceEntry = new TextField();
+        editPriceEntry.setPromptText("New price");
+        editPriceEntry.setPrefSize(110, 30);
+
+        Button editPriceButton = new Button("Edit Price");
+        editPriceButton.setPrefSize(110, 30);
+        editPriceButton.setPadding(new Insets(27.5, 0, 0, 7.5));
+
+        editPriceButton.setOnAction(e -> {
+            String text = editPriceEntry.getText();
+            if (text == null || text.isBlank()) return;
+
+            try {
+                double newPrice = Double.parseDouble(text);
+                updateItemPrice(item, newPrice);
+                priceLabel.setText(String.format("$%.2f", newPrice));
+            } catch (NumberFormatException ex) {
+                System.out.println("Invalid price: " + text);
+            }
+        });
+
+        vbox.getChildren().addAll(nameLabel, priceLabel, orderButton);
+        vbox2.getChildren().addAll(editPriceButton, editPriceEntry);
+
+        VBox.setMargin(editPriceButton, new Insets(27.5, 0, 0, 7.5)); 
+        hbox.getChildren().addAll(vbox, spacer, vbox2);
+
+        return hbox;
+    }
+
+*/
