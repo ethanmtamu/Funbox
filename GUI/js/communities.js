@@ -1,52 +1,21 @@
-/*
-private HBox createItemBox(Item item) {
-        HBox hbox = new HBox(10);
-        hbox.setPrefSize(350, 110);
+function initialize() {
+    console.log("initialize() ran!");
+    for (let i = 0; i < 10; i++) {
+      createCommunity(i);
+    }   
+}
 
-        Region spacer = new Region();
-        HBox.setHgrow(spacer, Priority.ALWAYS);
+function createCommunity(community_id) {
+    const div = document.createElement("div");
+    div.classList.add("community");
 
-        VBox vbox = new VBox(5);
-        VBox vbox2 = new VBox(20);
-        Label nameLabel = new Label(item.name);
-        nameLabel.setPadding(new Insets(27.5, 0, 0, 7.5));
+    const span = document.createElement("span");
+    span.innerHTML = "Community name"+community_id;
 
-        Label priceLabel = new Label(String.format("$%.2f", item.price));
-        priceLabel.setPadding(new Insets(0, 0, 0, 7.5));
+    div.appendChild(span);
 
+    const container = document.querySelector(".communities");
+    container.appendChild(div); 
+}
 
-        Button orderButton = new Button("Order");
-        orderButton.setPrefSize(110, 30);
-        orderButton.setOnMouseClicked(e -> handleOrder(item));
-
-        TextField editPriceEntry = new TextField();
-        editPriceEntry.setPromptText("New price");
-        editPriceEntry.setPrefSize(110, 30);
-
-        Button editPriceButton = new Button("Edit Price");
-        editPriceButton.setPrefSize(110, 30);
-        editPriceButton.setPadding(new Insets(27.5, 0, 0, 7.5));
-
-        editPriceButton.setOnAction(e -> {
-            String text = editPriceEntry.getText();
-            if (text == null || text.isBlank()) return;
-
-            try {
-                double newPrice = Double.parseDouble(text);
-                updateItemPrice(item, newPrice);
-                priceLabel.setText(String.format("$%.2f", newPrice));
-            } catch (NumberFormatException ex) {
-                System.out.println("Invalid price: " + text);
-            }
-        });
-
-        vbox.getChildren().addAll(nameLabel, priceLabel, orderButton);
-        vbox2.getChildren().addAll(editPriceButton, editPriceEntry);
-
-        VBox.setMargin(editPriceButton, new Insets(27.5, 0, 0, 7.5)); 
-        hbox.getChildren().addAll(vbox, spacer, vbox2);
-
-        return hbox;
-    }
-
-*/
+document.addEventListener("DOMContentLoaded", initialize);
