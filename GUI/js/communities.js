@@ -5,6 +5,9 @@ function initialize() {
     }   
 }
 
+// placeholder
+const baseLink = "communities/"
+
 function createCommunity(community_id) {
     const div = document.createElement("div");
     div.classList.add("community");
@@ -19,7 +22,15 @@ function createCommunity(community_id) {
     div.appendChild(span);
 
     const container = document.querySelector(".communities");
-    container.appendChild(div); 
+    // container.appendChild(div); 
+
+    const link = document.createElement("a");
+    link.href = baseLink + community_id
+    link.appendChild(div);
+
+    container.appendChild(link);
 }
 
 document.addEventListener("DOMContentLoaded", initialize);
+
+// community/community-name/
