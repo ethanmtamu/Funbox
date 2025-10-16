@@ -1,6 +1,6 @@
 const data = [
     { id: 1, name: "challenge 1", file: "challenge1.txt"},
-    { id: 2, name: "challenge 2", file: "challenge2.txt"},
+    { id: 2, name: "challenge 2", file: "challenge2.txt"}
     // { id: 3, name: "challenge 3", file: "challenge3.txt"},
     // { id: 4, name: "challenge 4", file: "challenge4.txt"},
     // { id: 5, name: "challenge 5", file: "challenge5.txt"},
@@ -11,12 +11,12 @@ const data = [
     // { id: 10, name: "challenge 10", file: "challenge10.txt"}
 ];
 
-const container = document.getElementById("id");
+const container = document.getElementById('tabs');
 
 data.forEach(item => {
     const div = document.createElement('div');
     div.className = 'flex-item';
-    div.textContent = item.name;
+    div.textContent = item.id;
     container.appendChild(div);
 });
 

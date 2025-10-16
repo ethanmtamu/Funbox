@@ -24,6 +24,22 @@
     justify-content: center;
 }
 
+#tabs {
+    display: flex;
+    flex-wrap: wrap;
+    /*gap: 10px;*/
+    /*margin-top: 20px;*/
+}
+
+#content {
+    /*    */
+}
+
+.flex-item {
+    flex: 1 1 200px;
+    text-align: center;
+}
+
 body {
     background-color: #2b292e;
     font-family: "Raleway", sans-serif;
