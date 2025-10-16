@@ -6,11 +6,11 @@ function initialize() {
 // placeholder
 const baseLink = "communities/"
 
-function onCommunityClick(community_id) {
-  window.location = baseLink + community_id;
-}
-
 function createCommunity(community_id) {
+    function onCommunityClick() {
+      window.location = baseLink + community_id;
+    }
+
     const div = document.createElement("div");
     div.classList.add("community");
     div.onclick = onCommunityClick;
