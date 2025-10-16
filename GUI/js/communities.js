@@ -7,6 +7,7 @@ function initialize() {
 const baseLink = "communities/"
 
 function createCommunity(community_id) {
+  
     function onCommunityClick() {
       window.location = baseLink + community_id;
     }
