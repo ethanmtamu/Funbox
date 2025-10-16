@@ -1,25 +1,29 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap');
 
-.raleway {
-    font-family: "Raleway", sans-serif;
+@font-face {
+    src: url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap');
+    font-family: default;
     color: #f2f0eb;
     font-optical-sizing: auto;
     font-weight: 200;
     font-style: normal;
-    font-size: 6vh;
+    font-size: 2.5vh;
 }
 
-.raleway-bold {
-    font-family: "Raleway", sans-serif;
-    font-weight: 700;
+@font-face {
+    src: url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&display=swap');
+    font-family: bold;
+    color: #f2f0eb;
+    font-optical-sizing: auto;
+    font-weight: 200;
     font-style: normal;
-    font-size: 6vh;
+    font-size: 2.5vh;
 }
 
 body {
     background-color: #2b292e;
-    font-family: "Raleway", sans-serif;
+    font-family: default;
     color: #f2f0eb;
     font-optical-sizing: auto;
     font-weight: 200;
