@@ -17,6 +17,13 @@
     font-size: 6vh;
 }
 
+.tab-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
 body {
     background-color: #2b292e;
     font-family: "Raleway", sans-serif;
