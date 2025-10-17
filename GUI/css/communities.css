@@ -2,16 +2,34 @@
 
 
 /* frutiger aero experiment for funny */
+
+@property --bgclr1 {
+  syntax: '<color>';
+  initial-value: #020024;
+  inherits: false;
+}
+
+@property --bgclr2 {
+  syntax: '<color>';
+  initial-value: #2a2a6d;
+  inherits: false;
+}
+
+@property --bgclr3 {
+  syntax: '<color>';
+  initial-value: #4848e4;
+  inherits: false;
+}
+
 .community {
   background: #0a073c;
   background: linear-gradient(
     0,
-    rgba(2, 0, 36, 1) 0%, 
-    rgb(42, 42, 109) 45%, 
-    rgb(72, 72, 228) 100%
+    var(--bgclr1) 0%, 
+    var(--bgclr2) 45%, 
+    var(--bgclr3) 100%
   );
   border: 1px solid #020024af; 
-
   border-radius: 15px;
   box-shadow: 
     0 8px 32px #0000001a,
@@ -22,30 +40,24 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 3vh 3vw;
+  padding: 1.5vh 1.5vw;
   margin: 1vh 0;
+  transition: --bgclr1 .5s, --bgclr2 .5s, --bgclr3 .5s;
+}
+
+.community:hover {
+    --bgclr1: #070184;
+    --bgclr2: #3939b8;
+    --bgclr3: #5b5bfd;
 }
 
 .community img {
-  border: 5px solid transparent /*rgb(54, 54, 153)*/;
-  /* border-radius: 50px; */
-  /* background-clip: padding-box; */
+  border: 1px solid rgb(54, 54, 153);
+  border-radius: 5vw;
   display: block;
-  padding: 3px;
-  width: 100px;
-  z-index: 0; 
+  width: 7.5vw;
 }
 
-/* workaround for gradient borders */
-.community img::before {
-  content: '';
-  background: linear-gradient(45deg, #542b5e, #702cdd);
-  border-radius: 15px;
-  position: absolute;
-  inset: 0;
-  padding: 30px; /*border thickness*/
-  z-index: -1;
-  mask: 
-    linear-gradient(#000 0 0) exclude, 
-    linear-gradient(#000 0 0) content-box;
+.community-name {
+  font-size: 1.25em;
 }

@@ -1,17 +1,18 @@
 function initialize() {
     console.log("initialize() ran!");
     for (let i = 1; i <= 10; i++) {
-      createCommunity(i);
+      placeholder = {id: i, name: "F".repeat(i)+"unbox!", memberCount: Math.round(10*i*Math.random())}
+      createCommunity(placeholder);
     }
 }
 
 // placeholder
 const baseLink = "communities/";
 
-function createCommunity(community_id) {
+function createCommunity(data) {
   
     function onCommunityClick() {
-      window.location = baseLink + community_id;
+      window.location = baseLink + data.id;
     }
 
     const div = document.createElement("div");
@@ -22,11 +23,19 @@ function createCommunity(community_id) {
     img.src = "media/dummypfp.jpg";
     img.width = 50;
 
-    const span = document.createElement("span");
-    span.innerText = "Community name"+' '+community_id;
+    const community_label = document.createElement("span");
+    community_label.classList.add("community-name");
+    community_label.innerHTML = data.name;
+
+    const member_label = document.createElement("span");
+    member_label.innerHTML = "<br>"+String(data.memberCount)+" members";
+
+    const community_infobox = document.createElement("div");
+    community_infobox.appendChild(community_label);
+    community_infobox.appendChild(member_label);
 
     div.appendChild(img);
-    div.appendChild(span);
+    div.appendChild(community_infobox);
 
     const container = document.querySelector(".communities");
     container.appendChild(div);
