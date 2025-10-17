@@ -20,7 +20,7 @@ function createCommunity(community_data) {
 
     const div = document.createElement("div");
     div.classList.add("community");
-    div.addEventListener("onclick", onCommunityClick)
+    div.addEventListener("click", onCommunityClick)
 
     const img = document.createElement("img");
     img.src = defaultImagePath;
