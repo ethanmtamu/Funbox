@@ -1,10 +1,12 @@
 function initialize() {
     console.log("initialize() ran!");
-    createCommunity()
+    for (let i = 0; i < 10; i++) {
+      createCommunity(i);
+    }
 }
 
 // placeholder
-const baseLink = "communities/"
+const baseLink = "communities/";
 
 function createCommunity(community_id) {
   
@@ -14,14 +16,16 @@ function createCommunity(community_id) {
 
     const div = document.createElement("div");
     div.classList.add("community");
-    div.onclick = onCommunityClick;
+    div.addEventListener("onclick", onCommunityClick)
     div.style.cursor = "pointer";
 
     const img = document.createElement("img");
     img.style.border = "5px solid blue";
+    img.src = "media/dummypfp.jpg";
+    img.width = 50;
 
-    const spand = document.createElement("span");
-    spand.textContent = "Community name";
+    const span = document.createElement("span");
+    span.innerText = "Community name";
 
     div.appendChild(img);
     div.appendChild(span);
