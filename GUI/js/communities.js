@@ -25,8 +25,8 @@ function createCommunity(community_id) {
     const span = document.createElement("span");
     span.innerText = "Community name"+' '+community_id;
 
-    div.appendChild(span);
     div.appendChild(img);
+    div.appendChild(span);
 
     const container = document.querySelector(".communities");
     container.appendChild(div);
