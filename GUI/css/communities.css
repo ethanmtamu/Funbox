@@ -21,14 +21,7 @@
   inherits: false;
 }
 
-.community {
-  background: #0a073c;
-  background: linear-gradient(
-    0,
-    var(--bgclr1) 0%, 
-    var(--bgclr2) 45%, 
-    var(--bgclr3) 100%
-  );
+.communities > div {
   border: 1px solid #020024af; 
   border-radius: 15px;
   box-shadow: 
@@ -42,6 +35,16 @@
   flex-wrap: wrap;
   padding: 1.5vh 1.5vw;
   margin: 1vh 0;
+}
+
+.community {
+  background: #0a073c;
+  background: linear-gradient(
+    0,
+    var(--bgclr1) 0%, 
+    var(--bgclr2) 45%, 
+    var(--bgclr3) 100%
+  );
   transition: --bgclr1 .5s, --bgclr2 .5s, --bgclr3 .5s;
 }
 
@@ -51,7 +54,7 @@
     --bgclr3: #5b5bfd;
 }
 
-.community img {
+.community > img {
   border: 1px solid rgb(54, 54, 153);
   border-radius: 5vw;
   display: block;
@@ -60,4 +63,13 @@
 
 .community-name {
   font-size: 1.25em;
+}
+
+.new-community {
+  background: #5f7f5f;
+  transition: background-color .5s;
+}
+
+.new-community:hover {
+  background: #7faf7f;
 }
