@@ -1,7 +1,7 @@
 /* TODO: merge this with main stylesheet */
 
 
-/* frutiger aero experiment for funny */
+/* frutiger aero attempt for funny */
 
 @property --bgclr1 {
   syntax: '<color>';
@@ -59,6 +59,7 @@
   border-radius: 5vw;
   display: block;
   width: 7.5vw;
+  height: 7.5vw;
 }
 
 .community-name {

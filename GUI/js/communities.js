@@ -10,6 +10,7 @@ function initialize() {
 
 // placeholder
 const baseLink = "communities/";
+const defaultImagePath = "media/dummypfp.jpg"
 
 function createCommunity(community_data) {
   
@@ -22,8 +23,12 @@ function createCommunity(community_data) {
     div.addEventListener("onclick", onCommunityClick)
 
     const img = document.createElement("img");
-    img.src = "media/dummypfp.jpg";
+    img.src = defaultImagePath;
     img.width = 50;
+
+    // too much fun
+    div.addEventListener("mouseover", () => {img.setAttribute("src", "media/onhover-test.png");});
+    div.addEventListener("mouseout", () => {img.setAttribute("src", defaultImagePath);});
 
     const community_label = document.createElement("span");
     community_label.classList.add("community-name");
