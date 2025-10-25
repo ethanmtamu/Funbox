@@ -74,3 +74,28 @@
 .new-community:hover {
   background: #7faf7f;
 }
+
+
+.modal-popup-form {
+  background: #2a2a6d;
+  position: fixed;
+  width: 50vw;
+  height: 80vh;
+  z-index: 101;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.modal-popup-form::after {
+  content: "";
+  background: #020024ac;
+  display: block;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: inherit;
+  left: inherit;
+  transform: inherit;
+  z-index: -1;
+}

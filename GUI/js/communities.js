@@ -47,7 +47,26 @@ function createCommunity(community_data) {
     container.appendChild(div);
 }
 
-// TODO: figure out better name for this function
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures
+function createCommunityClickAction(text) {
+  let popupForm = document.createElement("div");
+  popupForm.innerHTML = text;
+  popupForm.classList.add("modal-popup-form");
+  popupForm.hidden = true;
+
+  const body = document.querySelector("body");
+  body.append(popupForm);
+
+  return () => {
+    popupForm.hidden = false;
+    // temporary click action to close
+    popupForm.addEventListener("click", () => {
+      popupForm.hidden = true;;
+    })
+  }
+}
+
+
 function createCommunities(user_communities) {
   user_communities.forEach(community_data => {
     createCommunity(community_data);
@@ -55,10 +74,12 @@ function createCommunities(user_communities) {
   const new_community_button = document.createElement("div");
   new_community_button.innerHTML = "New community!";
   new_community_button.classList.add("new-community");
+  new_community_button.addEventListener("click", createCommunityClickAction("Sample pop-up text"));
 
   const find_community_button = document.createElement("div");
   find_community_button.innerHTML = "Join communities!";
   find_community_button.classList.add("new-community");
+  find_community_button.addEventListener("click", createCommunityClickAction("new one"));
   
   // oml
   const container = document.querySelector(".communities")
