@@ -1,7 +1,7 @@
 /* TODO: merge this with main stylesheet */
 
 
-/* frutiger aero attempt for funny */
+
 
 @property --bgclr1 {
   syntax: '<color>';
@@ -77,14 +77,27 @@
 
 
 .modal-popup-form {
-  background: #2a2a6d;
+  background: #2a636d;
+  border: 1px solid #2a2a6d;
+  border-radius: 1vw;
   position: fixed;
-  width: 50vw;
+  padding: 4vh 2vw;
   height: 80vh;
+  width: 50vw;
   z-index: 101;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.modal-popup-form::before {
+  content: "X";
+  color: #ffffff;
+  font-weight: bolder;
+  size: 1.5em;
+  position: fixed;
+  top: 1em;
+  right: 1em;
 }
 
 .modal-popup-form::after {
