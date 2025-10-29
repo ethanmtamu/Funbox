@@ -47,6 +47,17 @@ function createCommunity(community_data) {
     container.appendChild(div);
 }
 
+function isInsideBounds(boundsObj, mouseX, mouseY) {
+  if ( (mouseX >= boundsObj.left) && 
+       (mouseX <= boundsObj.left+boundsObj.width) && 
+       (mouseY >= boundsObj.top) && 
+       (mouseY <= boundsObj.top+boundsObj.height)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures
 function createCommunityClickAction(text) {
   let popupForm = document.createElement("div");
@@ -57,12 +68,31 @@ function createCommunityClickAction(text) {
   const body = document.querySelector("body");
   body.append(popupForm);
 
+  // prevents form from immediately closing after opening
+  // because of how click events are done
+  let justOpened = false; 
+
+  // should be used both for close button (tba)
+  // and clicking outside form
+  let hideAction = () => {
+    popupForm.hidden = true;
+    document.removeEventListener("click", clickAction);
+  }
+
+  let clickAction = (event) => {
+    // https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
+    let bounds = popupForm.getBoundingClientRect();
+    let x = event.clientX; 
+    let y = event.clientY;
+
+    if (!isInsideBounds(bounds, x, y) && !justOpened) { hideAction(); }
+    else { justOpened = false; }
+  }
+  
   return () => {
     popupForm.hidden = false;
-    // temporary click action to close
-    popupForm.addEventListener("click", () => {
-      popupForm.hidden = true;;
-    })
+    justOpened = true;
+    document.addEventListener("click", clickAction);
   }
 }
 
