@@ -58,7 +58,6 @@ function isInsideBounds(boundsObj, mouseX, mouseY) {
   }
 }
 
-// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Closures
 function createCommunityClickAction(text) {
   let popupForm = document.createElement("div");
   popupForm.innerHTML = text;
@@ -80,7 +79,6 @@ function createCommunityClickAction(text) {
   }
 
   let clickAction = (event) => {
-    // https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
     let bounds = popupForm.getBoundingClientRect();
     let x = event.clientX; 
     let y = event.clientY;
