@@ -64,6 +64,10 @@ function createCommunityClickAction(text) {
   popupForm.classList.add("modal-popup-form");
   popupForm.hidden = true;
 
+  let closeButton = document.createElement("div");
+  closeButton.classList.add("close-button");
+  popupForm.appendChild(closeButton);
+
   const body = document.querySelector("body");
   body.append(popupForm);
 
@@ -79,11 +83,13 @@ function createCommunityClickAction(text) {
   }
 
   let clickAction = (event) => {
-    let bounds = popupForm.getBoundingClientRect();
+    let boundsForm = popupForm.getBoundingClientRect();
+    let boundsClose = closeButton.getBoundingClientRect();
     let x = event.clientX; 
     let y = event.clientY;
 
-    if (!isInsideBounds(bounds, x, y) && !justOpened) { hideAction(); }
+    if ( (!isInsideBounds(boundsForm, x, y) || isInsideBounds(boundsClose, x, y)) 
+          && !justOpened) { hideAction(); }
     else { justOpened = false; }
   }
   
@@ -91,6 +97,7 @@ function createCommunityClickAction(text) {
     popupForm.hidden = false;
     justOpened = true;
     document.addEventListener("click", clickAction);
+    popupForm.addEventListener("click", clickAction);
   }
 }
 
