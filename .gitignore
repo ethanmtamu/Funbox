@@ -9,3 +9,9 @@
 
 #ide stuff
 .idea/
+
+#node stuff
+node_modules/
+
+#credentials
+.env

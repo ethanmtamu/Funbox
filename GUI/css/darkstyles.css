@@ -17,11 +17,20 @@
     font-size: 6vh;
 }
 
+.sidebar {
+    display: flex;
+    flex-direction: column;
+}
+
 .tab-header {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
     justify-content: center;
+}
+
+.sidebar-content {
+
 }
 
 #tabs {
