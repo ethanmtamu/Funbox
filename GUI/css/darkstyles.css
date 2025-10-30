@@ -17,11 +17,6 @@
     font-size: 6vh;
 }
 
-.sidebar {
-    display: flex;
-    flex-direction: column;
-}
-
 .tab-header {
     display: flex;
     flex-wrap: wrap;
@@ -29,8 +24,8 @@
     justify-content: center;
 }
 
-.sidebar-content {
-
+.sidebar-content{
+  display: flex;
 }
 
 #tabs {
