@@ -104,6 +104,11 @@
   opacity: .35;
 }
 
+.modal-popup-form > .popup-form-title {
+  text-align: center;
+  /* tba */
+}
+
 .modal-popup-form > .close-button:hover {
   cursor: pointer;
   opacity: 1;

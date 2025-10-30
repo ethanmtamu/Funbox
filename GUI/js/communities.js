@@ -58,15 +58,30 @@ function isInsideBounds(boundsObj, mouseX, mouseY) {
   }
 }
 
-function createCommunityClickAction(text) {
+function createPopupForm(headerText, description) {
   let popupForm = document.createElement("div");
-  popupForm.innerHTML = text;
   popupForm.classList.add("modal-popup-form");
   popupForm.hidden = true;
+
+  let header = document.createElement("h2");
+  header.innerHTML = headerText;
+  popupForm.appendChild(header);
+
+  let desc = document.createElement("div");
+  desc.innerHTML = description;
+  popupForm.appendChild(desc)
 
   let closeButton = document.createElement("div");
   closeButton.classList.add("close-button");
   popupForm.appendChild(closeButton);
+  
+  return {container: popupForm, closeButton: closeButton};
+}
+
+function createCommunityClickAction(text) {
+  let obj = createPopupForm();
+  popupForm = obj.container;
+  closeButton = obj.closeButton;
 
   const body = document.querySelector("body");
   body.append(popupForm);
@@ -97,7 +112,7 @@ function createCommunityClickAction(text) {
     popupForm.hidden = false;
     justOpened = true;
     document.addEventListener("click", clickAction);
-    popupForm.addEventListener("click", clickAction);
+    closeButton.addEventListener("click", clickAction);
   }
 }
 
