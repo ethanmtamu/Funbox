@@ -80,7 +80,7 @@
   border: 1px solid #2a2a6d;
   border-radius: 1vw;
   position: fixed;
-  padding: 4vh 2vw;
+  padding: 2vh 2vw;
   height: 80vh;
   width: 50vw;
   z-index: 101;
@@ -107,6 +107,9 @@
 .modal-popup-form > .popup-form-title {
   text-align: center;
   /* tba */
+}
+.modal-popup-form > .popup-form-desc {
+  text-align: center;
 }
 
 .modal-popup-form > .close-button:hover {

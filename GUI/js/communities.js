@@ -58,30 +58,42 @@ function isInsideBounds(boundsObj, mouseX, mouseY) {
   }
 }
 
-function createPopupForm(headerText, description) {
-  let popupForm = document.createElement("div");
+// very slow becoming the discord create server form
+function createPopupFormButtonList(titleText) {
+  let container = document.createElement("label");
+  container.innerHTML = titleText;
+
+  for (let i = 0; i < 4; i++) {
+    let opt = document.createElement("button");
+    opt.innerHTML = "GLORY TO FUNBOX!"+'!'.repeat(i)+" YEA"+"!".repeat(i);
+    container.appendChild(opt);
+  }
+
+  return container;
+}
+
+// currently considering extracting a huge
+// chunk of this function into a class
+function createCommunityClickAction(headerText, description) {
+  let popupForm = document.createElement("form");
   popupForm.classList.add("modal-popup-form");
   popupForm.hidden = true;
 
   let header = document.createElement("h2");
+  header.classList.add("popup-form-title");
   header.innerHTML = headerText;
   popupForm.appendChild(header);
 
   let desc = document.createElement("div");
+  desc.classList.add("popup-form-desc");
   desc.innerHTML = description;
   popupForm.appendChild(desc)
 
   let closeButton = document.createElement("div");
   closeButton.classList.add("close-button");
   popupForm.appendChild(closeButton);
-  
-  return {container: popupForm, closeButton: closeButton};
-}
 
-function createCommunityClickAction(text) {
-  let obj = createPopupForm();
-  popupForm = obj.container;
-  closeButton = obj.closeButton;
+  popupForm.appendChild(createPopupFormButtonList("box == Fun"))
 
   const body = document.querySelector("body");
   body.append(popupForm);
@@ -112,7 +124,7 @@ function createCommunityClickAction(text) {
     popupForm.hidden = false;
     justOpened = true;
     document.addEventListener("click", clickAction);
-    closeButton.addEventListener("click", clickAction);
+    closeButton.addEventListener("click", hideAction, {once: true});
   }
 }
 
@@ -124,12 +136,12 @@ function createCommunities(user_communities) {
   const new_community_button = document.createElement("div");
   new_community_button.innerHTML = "New community!";
   new_community_button.classList.add("new-community");
-  new_community_button.addEventListener("click", createCommunityClickAction("Sample pop-up text"));
+  new_community_button.addEventListener("click", createCommunityClickAction("FIND","Sample pop-up text"));
 
   const find_community_button = document.createElement("div");
   find_community_button.innerHTML = "Join communities!";
   find_community_button.classList.add("new-community");
-  find_community_button.addEventListener("click", createCommunityClickAction("new one"));
+  find_community_button.addEventListener("click", createCommunityClickAction("JOIN","new one"));
   
   // oml
   const container = document.querySelector(".communities")
