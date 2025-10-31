@@ -65,3 +65,7 @@ body {
     flex-direction: vertical;
     
 }
+
+html {
+    font-family: default_raleway;
+}

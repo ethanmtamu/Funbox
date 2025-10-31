@@ -63,6 +63,7 @@
 
 .community-name {
   font-size: 1.25em;
+  font-family: bold_raleway;
 }
 
 .new-community {
@@ -106,7 +107,7 @@
 
 .modal-popup-form > .popup-form-title {
   text-align: center;
-  /* tba */
+  font-family: bold_raleway;
 }
 .modal-popup-form > .popup-form-desc {
   text-align: center;
