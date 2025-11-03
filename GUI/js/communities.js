@@ -105,8 +105,8 @@ function createCommunityClickAction(headerText, description) {
   // should be used both for close button (tba)
   // and clicking outside form
   let hideAction = () => {
-    popupForm.hidden = true;
     document.removeEventListener("click", clickAction);
+    popupForm.hidden = true;
   }
 
   let clickAction = (event) => {

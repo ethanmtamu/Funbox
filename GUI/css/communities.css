@@ -94,8 +94,21 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: all .2s ease-out;
+  transition-behavior: allow-discrete;
 }
 
+@starting-style {
+  .modal-popup-form {
+    /* ensures that form fades in */
+    opacity: 0; 
+  }
+}
+
+.modal-popup-form[hidden] {
+  /* likewise, but fading out instead */
+  opacity: 0;
+}
 
 .modal-popup-form button {
   background-color: #caffef;
