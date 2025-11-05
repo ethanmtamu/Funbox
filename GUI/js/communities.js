@@ -60,7 +60,9 @@ function isInsideBounds(boundsObj, mouseX, mouseY) {
 
 // very slow becoming the discord create server form
 function createPopupFormButtonList(titleText) {
-  let container = document.createElement("label");
+  // for labels, first button fires hover event even if mouse
+  // is over another button, so div is created instead 
+  let container = document.createElement("div");
   container.innerHTML = titleText;
 
   for (let i = 0; i < 4; i++) {
