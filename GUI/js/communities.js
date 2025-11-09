@@ -63,7 +63,7 @@ function createPopupFormButtonList(titleText) {
   // for labels, first button fires hover event even if mouse
   // is over another button, so div is created instead 
   let container = document.createElement("div");
-  container.innerHTML = titleText;
+  container.innerHTML = titleText || "";
 
   for (let i = 0; i < 4; i++) {
     let opt = document.createElement("button");
@@ -95,7 +95,7 @@ function createCommunityClickAction(headerText, description) {
   closeButton.classList.add("close-button");
   popupForm.appendChild(closeButton);
 
-  popupForm.appendChild(createPopupFormButtonList("box == Fun"))
+  popupForm.appendChild(createPopupFormButtonList())
 
   const body = document.querySelector("body");
   body.append(popupForm);
@@ -138,12 +138,12 @@ function createCommunities(user_communities) {
   const new_community_button = document.createElement("div");
   new_community_button.innerHTML = "New community!";
   new_community_button.classList.add("new-community");
-  new_community_button.addEventListener("click", createCommunityClickAction("FIND","Sample pop-up text"));
+  new_community_button.addEventListener("click", createCommunityClickAction("CREATE","Create a new community!"));
 
   const find_community_button = document.createElement("div");
   find_community_button.innerHTML = "Join communities!";
   find_community_button.classList.add("new-community");
-  find_community_button.addEventListener("click", createCommunityClickAction("JOIN","new one"));
+  find_community_button.addEventListener("click", createCommunityClickAction("JOIN","Find and join an existing community!"));
   
   // oml
   const container = document.querySelector(".communities")
