@@ -1,0 +1,25 @@
+/* Sets the main container for the entire page */
+.Home {
+    display: flex; /* Enables Flexbox for two-column layout */
+    min-height: 100vh; /* Ensures the container takes up the full viewport height */
+    width: 100%;
+}
+
+/* Styles the main content area */
+main {
+    flex-grow: 1; /* Allows the main area to take up all remaining space */
+    margin: 0;
+    padding: 0;
+    background-color: #28272e; /* Light background for main content */
+}
+
+/* Utility to make a component a flex container (used on .Home) */
+.flex {
+    display: flex;
+}
+
+/* Utility to make a flex item take up all available space (used on main) */
+.flex-1 {
+    flex-grow: 1;
+}
+
