@@ -1,0 +1,206 @@
+@charset "UTF-8"; 
+
+/* TODO: merge this with main stylesheet */
+
+@property --bgclr1 {
+  syntax: '<color>';
+  initial-value: #020024;
+  inherits: false;
+}
+
+@property --bgclr2 {
+  syntax: '<color>';
+  initial-value: #2a2a6d;
+  inherits: false;
+}
+
+@property --bgclr3 {
+  syntax: '<color>';
+  initial-value: #4848e4;
+  inherits: false;
+}
+
+.communities > div {
+  border: 1px solid #020024af; 
+  border-radius: 15px;
+  box-shadow: 
+    0 8px 32px #0000001a,
+    inset 0 1px 0 #6e707b80,
+    inset 0 -1px 0 #8b8b8b1a,
+    inset 0 0 2px 1px #746c92;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 1.5vh 1.5vw;
+  margin: 1vh 0;
+}
+
+.community {
+  background: #0a073c;
+  background: linear-gradient(
+    0,
+    var(--bgclr1) 0%, 
+    var(--bgclr2) 45%, 
+    var(--bgclr3) 100%
+  );
+  transition: --bgclr1 .5s, --bgclr2 .5s, --bgclr3 .5s;
+}
+
+.community:hover {
+    --bgclr1: #070184;
+    --bgclr2: #3939b8;
+    --bgclr3: #5b5bfd;
+}
+
+.community > img {
+  border: 1px solid rgb(54, 54, 153);
+  border-radius: 5vw;
+  display: block;
+  width: 7.5vw;
+  height: 7.5vw;
+}
+
+.community-name {
+  font-size: 1.25em;
+  font-family: bold_raleway;
+}
+
+.new-community {
+  background: #5f7f5f;
+  transition: background-color .5s;
+}
+
+.new-community:hover {
+  background: #7faf7f;
+}
+
+
+.modal-popup-form {
+  background: #2a636d;
+  background-image: linear-gradient(
+    0,
+    #2a636d 0%,
+    #18d4f5 35%,
+    #157bdb 100%
+  );
+  border: 1px solid #2a2a6d;
+  border-radius: 1vw;
+  position: fixed;
+  padding: 2vh 2vw;
+  height: 80vh;
+  width: 50vw;
+  z-index: 101;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: all .2s ease-out;
+  transition-behavior: allow-discrete;
+}
+
+@starting-style {
+  .modal-popup-form {
+    /* ensures that form fades in */
+    opacity: 0; 
+  }
+}
+
+.modal-popup-form[hidden] {
+  /* likewise, but fading out instead */
+  opacity: 0;
+}
+
+@property --buclr1 {
+  syntax: '<color>';
+  initial-value: #caffef;
+  inherits: false;
+}
+
+@property --buclr2 {
+  syntax: '<color>';
+  initial-value: #57e8bd;
+  inherits: false;
+}
+
+@property --buclr3 {
+  syntax: '<color>';
+  initial-value: #00e6e6;
+  inherits: false;
+}
+
+.modal-popup-form button {
+  background-color: #caffef;
+  /* wtf */
+  background-image: linear-gradient(
+    180deg,
+    var(--buclr1) 0%,
+    var(--buclr2) 35%,
+    var(--buclr3) 100%
+  );
+  border: 1px solid #157bdb;
+  border-radius: 2vw;
+  display: block;
+  font-family: bold_raleway;
+  font-size: 1.25rem;
+  margin: 1vh 0;
+  transition: all .25s;
+  /* TODO: change height to be more responsive */
+  height: 10vh; 
+  width: 100%;
+}
+
+.modal-popup-form button:hover {
+  --buclr1: #84a49a;
+  --buclr2: #40a788;
+  --buclr3: #018989;
+}
+
+.modal-popup-form > .close-button {
+  display: block;
+  content: url("../media/icons/cross.svg");
+  color: #ffffff;
+  font-weight: bolder;
+  size: 1.5em;
+  padding: .5em;
+  position: fixed;
+  top: 1em;
+  right: 1em;
+  height: 1.25em;
+  width: 1.25em;
+  opacity: .35;
+}
+
+.modal-popup-form > .popup-form-title {
+  text-align: center;
+  font-family: bold_raleway;
+}
+
+.modal-popup-form > .popup-form-title::after {
+  content: url("../media/icons/bottle.svg");
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
+}
+
+.modal-popup-form > .popup-form-desc {
+  text-align: center;
+}
+
+.modal-popup-form > .close-button:hover {
+  cursor: pointer;
+  opacity: 1;
+}
+
+.modal-popup-form::after {
+  content: "";
+  background: #020024ac;
+  display: block;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: inherit;
+  left: inherit;
+  transform: inherit;
+  z-index: -1;
+}
